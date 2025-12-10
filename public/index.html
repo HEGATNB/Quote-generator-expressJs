@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор случайных цитат</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Генератор случайных цитат</h1>
+        </header>
+
+        <main>
+            <section class="random-quote">
+                <h2>Случайная цитата</h2>
+                <div class="quote-card" id="randomQuote">
+                    <p class="quote-text">Нажмите кнопку, чтобы получить случайную цитату</p>
+                    <p class="quote-author"></p>
+                    <p class="quote-category"></p>
+                </div>
+                <button onclick="getRandomQuote()" class="btn">Получить случайную цитату</button>
+            </section>
+
+            <section class="quotes-list">
+                <h2>Все цитаты</h2>
+                <div class="controls">
+                    <input type="number" id="page" value="1" min="1" placeholder="Страница">
+                    <input type="number" id="limit" value="5" min="1" max="20" placeholder="Лимит">
+                    <button onclick="getAllQuotes()" class="btn">Загрузить</button>
+                </div>
+                <div id="quotesContainer"></div>
+            </section>
+
+            <section class="add-quote">
+                <h2>Добавить новую цитату</h2>
+                <form id="addQuoteForm">
+                    <textarea id="quoteText" placeholder="Текст цитаты" required></textarea>
+                    <input type="text" id="quoteAuthor" placeholder="Автор" required>
+                    <input type="text" id="quoteCategory" placeholder="Категория (опционально)">
+                    <button type="submit" class="btn">Добавить цитату</button>
+                </form>
+            </section>
+
+            <section class="search">
+                <h2>Поиск цитат</h2>
+                <div class="search-controls">
+                    <input type="text" id="searchAuthor" placeholder="Поиск по автору">
+                    <button onclick="searchByAuthor()" class="btn">Найти</button>
+                    <input type="text" id="searchCategory" placeholder="Поиск по категории">
+                    <button onclick="searchByCategory()" class="btn">Найти</button>
+                </div>
+                <div id="searchResults"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

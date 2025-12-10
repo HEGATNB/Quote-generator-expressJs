@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #eb832a;
+    background-image: url('assets/mainBackground.png');
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #352822;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: ;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: white;
+    font-size: 1.2em;
+}
+
+section {
+    background: #352822;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #eb832a;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.quote-card {
+    background: #9c4d26;
+    border-left: 4px solid #eb832a;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.quote-text {
+    font-size: 1.2em;
+    font-style: italic;
+    color: ;
+    margin-bottom: 10px;
+}
+
+.quote-author {
+    font-weight: bold;
+    color: #eb832a;
+    text-align: right;
+}
+
+.quote-category {
+    color: white;
+    font-size: 0.9em;
+    text-align: right;
+}
+
+.btn {
+    background: #eb832a;
+    color: #352822;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+.controls, .search-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    flex: 1;
+    min-width: 200px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#quotesContainer, #searchResults {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background: #352822;
+    border-radius: 10px;
+    color: #7f8c8d;
+}
+
+footer ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+footer li {
+    margin: 5px 0;
+    font-family: monospace;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .controls, .search-controls {
+        flex-direction: column;
+    }
+
+    input, textarea {
+        min-width: 100%;
+    }
+}
