@@ -1,4 +1,4 @@
-const API_URL = 'https://quote-generator-expressjs-1.onrender.com';
+const API_URL = 'https://quote-generator-expressjs-1.onrender.com/api/quotes';
 
 async function getRandomQuote() {
     try {
