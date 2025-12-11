@@ -1,5 +1,5 @@
 ## Ссылка на сайт
-- [Ссылка](https://hegatnb.github.io/Quote-generator-expressJs/public/)
+- [Ссылка](https://quote-generator-expressjs-1.onrender.com)
 ## Описание
 Сайт поддерживает возможность добавления своих цитат или
 получения случайной цитаты из уже хранящихся.
