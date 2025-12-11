@@ -49,8 +49,6 @@ async function getAllQuotes() {
             `;
             container.appendChild(quoteElement);
         });
-
-        // Показать информацию о пагинации
         const info = document.createElement('p');
         info.innerHTML = `Страница ${data.page} из ${data.totalPages} (Всего цитат: ${data.total})`;
         container.insertBefore(info, container.firstChild);
@@ -85,7 +83,6 @@ document.getElementById('addQuoteForm').addEventListener('submit', async functio
             const newQuote = await response.json();
             alert(`Цитата добавлена! ID: ${newQuote.id}`);
             this.reset();
-            // Обновить список цитат
             getAllQuotes();
         } else {
             const errorData = await response.json();
