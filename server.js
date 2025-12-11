@@ -1,35 +1,67 @@
-
 require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const logger = require('./src/middleware/logger');
-const quotesRouter = require('./src/routes/quotes');
+const path = require('path');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(logger);
 
-app.use(express.static('public'));
+// ВРЕМЕННО комментируем кастомные модули
+// const logger = require('./src/middleware/logger');
+// app.use(logger);
 
-app.use('/api/quotes', quotesRouter);
+// const quotesRouter = require('./src/routes/quotes');
+// app.use('/api/quotes', quotesRouter);
+
+// Вместо этого - тестовый маршрут API
+app.get('/api/quotes/random', (req, res) => {
+  res.json({
+    id: 999,
+    text: "Тестовая цитата для проверки API",
+    author: "Система",
+    category: "Тест"
+  });
+});
+
+app.get('/api/quotes', (req, res) => {
+  res.json({
+    total: 1,
+    page: 1,
+    quotes: [{
+      id: 999,
+      text: "Тестовая цитата",
+      author: "Система",
+      category: "Тест"
+    }]
+  });
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.use((req, res) => {
-  res.status(404).json({ error: 'Маршрут не найден' });
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'Сервер работает',
+    timestamp: new Date().toISOString()
+  });
 });
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Что-то пошло не так!' });
-});
-
-const port = process.env.PORT || 3000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
-
+try {
+  app.listen(PORT, () => {
+    console.log(`✅ Сервер запущен на порту ${PORT}`);
+    console.log(`✅ Проверьте: http://localhost:${PORT}/health`);
+  });
+} catch (error) {
+  console.error('❌ Ошибка запуска сервера:', error);
+  process.exit(1);
+}
